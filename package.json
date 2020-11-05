@@ -13,6 +13,7 @@
     "react": "^16.13.1",
     "react-avatar": "^3.9.7",
     "react-bootstrap": "^1.2.2",
+    "react-collapse": "^5.0.1",
     "react-dom": "^16.13.1",
     "react-icon": "^1.0.0",
     "react-icons": "^3.11.0",

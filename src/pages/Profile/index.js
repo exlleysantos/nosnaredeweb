@@ -7,7 +7,7 @@ import { Container, BioInfos } from './styles';
 // import api from '../../services/api';
 
 const Profile = () => {
-	const [user] = useState({ name: 'Joca Doido' });
+	const [user] = useState({ name: 'Antonio Santos' });
 
 	return (
 		<Container>

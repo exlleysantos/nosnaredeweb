@@ -20,7 +20,7 @@ const AuthStack = () => {
 		<Router>
 			<Switch>
 				<Route exact path='/'>
-					<Redirect to='/home' />
+					<Redirect to='/profile' />
 				</Route>
 
 				<Route exact path='/home'>

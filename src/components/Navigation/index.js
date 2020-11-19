@@ -26,6 +26,9 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 	const { pathname } = useLocation();
 
 	const [showOverlay, setShowOverlay] = useState(false);
+	const [showContinuous, setShowContinuous] = useState(() => {
+		return pathname.includes('continuous-formation') ? true : false;
+	});
 	const [showForums, setShowForums] = useState(() => {
 		return pathname.includes('forums') ? true : false;
 	});
@@ -68,11 +71,26 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 						</LinkItem>
 					</Link>
 
-					<Link to={{ pathname: '/educators', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('educator')}>
-							<AiOutlinePlayCircle /> (Auto) Formação continuada
-						</LinkItem>
-					</Link>
+					<LinkItem
+						onClick={() => setShowContinuous(!showContinuous)}
+						active={pathname.includes('continuous-formation')}>
+						<AiOutlinePlayCircle /> Formação continuada
+						<BiChevronDown className={`${showContinuous ? 'rotate' : ''} chevron`} />
+					</LinkItem>
+
+					<Collapse isOpened={showContinuous} theme={collapseTheme}>
+						<Forums>
+							<Link to='/continuous-formation/courses'>
+								<Forum>Cursos</Forum>
+							</Link>
+							<Link to='/continuous-formation/video'>
+								<Forum>Vídeo Aulas</Forum>
+							</Link>
+							<Link to='/continuous-formation/files'>
+								<Forum>Arquivos</Forum>
+							</Link>
+						</Forums>
+					</Collapse>
 
 					<LinkItem
 						onClick={() => setShowForums(!showForums)}

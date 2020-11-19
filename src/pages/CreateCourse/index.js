@@ -26,6 +26,8 @@ const CreateCourse = () => {
 				<Form ref={formRef} onSubmit={handleSubmit}>
 					<Input name='name' size={2} placeholder='Nome do curso' />
 					<Input name='link' size={2} placeholder='Link do site' />
+					<Input name='link' size={2} placeholder='Link do meet' />
+					<Input name='link' size={2} placeholder='Outros links' />
 
 					<TextArea name='description' size={4} rows={4} placeholder='Descrição' />
 

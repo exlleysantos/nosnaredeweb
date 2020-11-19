@@ -26,16 +26,16 @@ const CreateForum = () => {
 				<Form ref={formRef} onSubmit={handleSubmit}>
 					<TextArea name='title' size={4} rows={4} placeholder='Título do fórum' />
 
-					<H3>Por favor, selecione a quem se destina o seu curso:</H3>
+					<H3>Por favor, selecione a categoria do seu fórum:</H3>
 
 					<Scope path='destination'>
-						<Checkbox name='preBasic' size={4} label='Professores do 1° ao 5° ano' />
-						<Checkbox name='basic' size={4} label='Professores do 6° ao 9° ano' />
-						<Checkbox name='high' size={4} label='Professores do Ensino Médio' />
+						<Checkbox name='general' size={4} label='Gerais' />
+						<Checkbox name='doubts' size={4} label='Dúvidas' />
+						<Checkbox name='curiosity' size={4} label='Curiosidades' />
 						<Checkbox
-							name='university'
+							name='Experience'
 							size={4}
-							label='Professores do Ensino Superior'
+							label='Experiências'
 						/>
 					</Scope>
 					<Button>Iniciar fórum</Button>

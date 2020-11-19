@@ -84,18 +84,18 @@ const Forum = () => {
 
 					<div>
 						<Options>
-							<Link to='/continuous-formation/courses/create'>
+							<Link to='/share/links'>
 								<Option>
 									<AiOutlineLink /> Links
 								</Option>
 							</Link>
-							<Link to='/continuous-formation/video/create'>
+							<Link to='/share/class'>
 								<Option>
 									<FaChalkboardTeacher />
 									Vídeo Aulas
 								</Option>
 							</Link>
-							<Link to='/continuous-formation/files/create'>
+							<Link to='/share/docs'>
 								<Option>
 									<CgFileDocument />
 									Arquivos

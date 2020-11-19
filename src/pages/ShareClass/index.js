@@ -30,7 +30,9 @@ const ShareDocs = () => {
 						rows={4}
 						placeholder='Descrição do conteúdo'
 					/>
-					<Input size={4} name='link' placeholder='Link' type='link' />
+					<Input size={4} name='link' placeholder='Link 1' type='link' />
+					<Input size={4} name='link' placeholder='Link 2' type='link' />
+					<Input size={4} name='link' placeholder='Link 3' type='link' />
 
 					<Button>Compartilhar</Button>
 				</Form>

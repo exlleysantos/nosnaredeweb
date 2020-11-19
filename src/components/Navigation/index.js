@@ -83,10 +83,10 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 							<Link to='/continuous-formation/courses'>
 								<Forum>Cursos</Forum>
 							</Link>
-							<Link to='/continuous-formation/video'>
+							<Link to='/continuous-formation/class'>
 								<Forum>Vídeo Aulas</Forum>
 							</Link>
-							<Link to='/continuous-formation/files'>
+							<Link to='/continuous-formation/docs'>
 								<Forum>Arquivos</Forum>
 							</Link>
 						</Forums>

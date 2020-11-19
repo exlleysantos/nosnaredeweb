@@ -46,7 +46,31 @@ const Profile = () => {
 						<header>
 							<h3>Tradutor</h3>
 
-							<button>VER</button>
+							<button href="https://google.com">VER</button>
+						</header>
+					</div>
+
+					<div>
+						<header>
+							<h3>Agenda</h3>
+
+							<button href="https://google.com">VER</button>
+						</header>
+					</div>
+
+					<div>
+						<header>
+							<h3>Tradutor</h3>
+
+							<button href="https://google.com">VER</button>
+						</header>
+					</div>
+
+					<div>
+						<header>
+							<h3>Calculadora</h3>
+
+							<button href="https://google.com">VER</button>
 						</header>
 					</div>
 				</BioInfos>

@@ -41,6 +41,14 @@ const Profile = () => {
 							<button>VER</button>
 						</header>
 					</div>
+
+					<div>
+						<header>
+							<h3>Tradutor</h3>
+
+							<button>VER</button>
+						</header>
+					</div>
 				</BioInfos>
 			</Box>
 		</Container>

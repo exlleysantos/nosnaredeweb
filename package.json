@@ -22,6 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-select": "^3.1.0",
+    "recdal": "^1.0.0",
     "styled-components": "^5.2.0",
     "yup": "^0.29.3"
   },

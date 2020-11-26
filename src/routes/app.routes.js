@@ -5,12 +5,18 @@ import Profile from '../pages/Profile';
 import Educators from '../pages/Educators';
 import CreateActivity from '../pages/CreateActivity';
 import CreateCourse from '../pages/CreateCourse';
+import CoursesFeed from '../pages/CoursesFeed';
 import CreateForum from '../pages/CreateForum';
 import Forums from '../pages/Forums';
 import ShareOptions from '../pages/ShareOptions';
 import ShareLinks from '../pages/ShareLinks';
+
 import ShareDocs from '../pages/ShareDocs';
+import DocsFeed from '../pages/DocsFeed';
+
 import ShareClass from '../pages/ShareClass';
+import ClassFeed from '../pages/ClassFeed';
+
 import Error404 from '../pages/404';
 
 import Layout from '../components/Layout';
@@ -45,6 +51,12 @@ const AuthStack = () => {
 					</Layout>
 				</Route>
 
+				<Route exact path='/continuous-formation/courses'>
+					<Layout>
+						<CoursesFeed />
+					</Layout>
+				</Route>
+
 				<Route exact path='/create-course'>
 					<Layout>
 						<CreateCourse />
@@ -75,9 +87,21 @@ const AuthStack = () => {
 					</Layout>
 				</Route>
 
+				<Route exact path='/continuous-formation/docs'>
+					<Layout>
+						<DocsFeed />
+					</Layout>
+				</Route>
+
 				<Route exact path='/share/docs'>
 					<Layout>
 						<ShareDocs />
+					</Layout>
+				</Route>
+
+				<Route exact path='/continuous-formation/class'>
+					<Layout>
+						<ClassFeed />
 					</Layout>
 				</Route>
 

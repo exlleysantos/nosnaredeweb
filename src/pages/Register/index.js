@@ -11,6 +11,8 @@ import { GrFormAdd } from 'react-icons/gr';
 import { CgTrashEmpty } from 'react-icons/cg';
 import { useCallback } from 'react';
 
+import api from '../../services/api';
+
 const options = [
 	{ value: 1, label: 'Ensino fundamental' },
 	{ value: 2, label: 'Ensino médio' },

@@ -4,6 +4,8 @@ import UserProfile from '../../components/UserProfile';
 import Box from '../../components/Box';
 import { Container, BioInfos } from './styles';
 
+import api from '../../services/api';
+
 // import api from '../../services/api';
 
 const Profile = () => {

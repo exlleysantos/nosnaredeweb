@@ -4,6 +4,8 @@ import Button from '../../components/Button';
 import { Form, Input } from '../../components/Form';
 import { Container, FormContainer, Title, SubTitle, Welcome } from './styles';
 
+import api from '../../services/api';
+
 const Login = () => {
 	const formRef = useRef(null);
 

@@ -47,7 +47,7 @@ const Profile = () => {
 					<div>
 						<header>
 							<h3>Tradutor</h3>
-
+							<a></a>
 							<button href="https://google.com">VER</button>
 						</header>
 					</div>

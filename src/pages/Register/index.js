@@ -91,7 +91,7 @@ const Register = () => {
 	return (
 		<Container>
 			<Title onClick={() => console.log(teachingDegree)}>
-				#Entre<span>NÓS</span>NaRede
+				#Entre<span>NÓS</span>naRede
 			</Title>
 			<FormContainer>
 				<H1>Cadastro</H1>
@@ -139,7 +139,7 @@ const Register = () => {
 							)}
 
 							<Input name='lattes' placeholder='Lattes (opcional)' size={1} />
-							<Input name='ocid' placeholder='Ocid (opcional)' size={1} />
+							<Input name='orcid' placeholder='Orcid (opcional)' size={1} />
 							<TextArea name='tags' rows={5} placeholder='Interesses' size={2} />
 
 							<Subjects>

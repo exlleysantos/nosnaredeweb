@@ -54,7 +54,7 @@ const Login = () => {
 			e.preventDefault();
 
 			const payload = { email, password };
-			const { data } = await POST('https://nosnaredeapi.herokuapp.com/sessions', payload);
+			const { data } = await POST('/sessions', payload);
 			alert("data aqui", data);
 			const validationSchema = Yup.object().shape({
 				email: Yup.string().email().required(),

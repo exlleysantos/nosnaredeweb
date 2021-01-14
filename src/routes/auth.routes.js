@@ -11,6 +11,10 @@ const AuthStack = () => {
 	return (
 		<Router>
 			<Switch>
+				<Route exact path='/'>
+					<Redirect to='/login' />
+				</Route>
+
 				<Route exact path='/login'>
 					<Login />
 				</Route>

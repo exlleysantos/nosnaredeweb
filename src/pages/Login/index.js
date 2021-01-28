@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import { Form, Input } from '../../components/Form';
 import { Container, FormContainer, Title, SubTitle, Welcome } from './styles';
 
-import {GET, POST} from '../../services/api';
+import Api from '../../services/api';
 
 import { AuthContext } from '../../store/Auth';
 
@@ -31,7 +31,7 @@ const Login = () => {
 
 				if (authToken) {
 					const headers = { authorization: `Bearer ${authToken}` };
-					const response = await GET('https://nosnaredeapi.herokuapp.com/sessions', {
+					const response = await api.get('https://nosnaredeapi.herokuapp.com/sessions', {
 						headers,
 					});
 

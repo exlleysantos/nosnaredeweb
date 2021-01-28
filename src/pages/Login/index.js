@@ -31,7 +31,7 @@ const Login = () => {
 
 				if (authToken) {
 					const headers = { authorization: `Bearer ${authToken}` };
-					const response = await api.get('https://nosnaredeapi.herokuapp.com/sessions', {
+					const response = await Api.get('https://nosnaredeapi.herokuapp.com/sessions', {
 						headers,
 					});
 
@@ -54,7 +54,7 @@ const Login = () => {
 			e.preventDefault();
 
 			const payload = { email, password };
-			const { data } = await POST('/sessions', payload);
+			const { data } = await Api.post('/sessions', payload);
 			alert("data aqui", data);
 			const validationSchema = Yup.object().shape({
 				email: Yup.string().email().required(),

@@ -73,7 +73,6 @@ const Register = () => {
 
 				payload.append('subjects', subjects);
 
-				//console.log('getAll', payload.getAll());
 				await api.post('users', payload);
 				return alert('USUÁRIO CADASTRADO!');
 			} catch (error) {
@@ -192,7 +191,7 @@ const Register = () => {
 
 							<FileInput
 								label='Foto de perfil'
-								name='avatar'
+								name='profileImage'
 								accept={['jpg', 'jpeg', 'png']}
 								overlayText='Foto de perfil'
 								size={2}

@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import { Form, Input } from '../../components/Form';
 import { Container, FormContainer, Title, SubTitle, Welcome } from './styles';
 
-import Api from '../../services/api';
+import api from '../../services/api';
 
 import { AuthContext } from '../../store/Auth';
 
@@ -17,8 +17,6 @@ const Login = () => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
-	console.log(email,password)
 
 	useEffect(() => {
 		/** useEffect usado para verificar se o usuário já esta autenticado.
@@ -31,7 +29,7 @@ const Login = () => {
 
 				if (authToken) {
 					const headers = { authorization: `Bearer ${authToken}` };
-					const response = await Api.get('https://nosnaredeapi.herokuapp.com/sessions', {
+					const response = await api.get('/sessions', {
 						headers,
 					});
 
@@ -54,8 +52,8 @@ const Login = () => {
 			e.preventDefault();
 
 			const payload = { email, password };
-			const { data } = await Api.post('/sessions', payload);
-			alert("data aqui", data);
+			const { data } = await api.post('/sessions', payload);
+			console.log("data aqui: ", data);
 			const validationSchema = Yup.object().shape({
 				email: Yup.string().email().required(),
 				password: Yup.string().required(),
@@ -69,9 +67,8 @@ const Login = () => {
 			if (error instanceof Yup.ValidationError) {
 				return alert('Preencha todos os campos corretamente');
 			}
-			const { status } = error;
-
-			switch (status) {
+			
+			switch (error) {
 				case 404:
 					return alert('Usuário nao encontrado');
 				case 401:
@@ -79,7 +76,7 @@ const Login = () => {
 				case 503:
 					return alert('Serviço Indisponível')
 				default:
-					return alert('Erro', {status});
+					return alert(error);
 			}
 		}
 	};

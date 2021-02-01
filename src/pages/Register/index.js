@@ -25,6 +25,12 @@ const Register = () => {
 	const [subjects, setSubjects] = useState([]);
 	const [level, setTeachingDegree] = useState(undefined);
 	
+	function redirecionar(){
+		if(window.confirm("USUÁRIO CADASTRADO!")){
+			window.location.href = "https://nosnaredeweb.herokuapp.com/"
+		}
+	}
+
 	const handleAddSubject = useCallback(() => {
 		const subject = formRef.current.getFieldValue('subjectName');
 
@@ -74,7 +80,7 @@ const Register = () => {
 				payload.append('subjects', subjects);
 
 				await api.post('users', payload);
-				return alert('USUÁRIO CADASTRADO!');
+				return redirecionar();
 			} catch (error) {
 
 				console.error("aqui o seu erro, ó:", error.message);

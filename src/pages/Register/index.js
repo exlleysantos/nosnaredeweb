@@ -48,9 +48,8 @@ const Register = () => {
 
 	const handleSubmit = useCallback(
 		async (formData) => {
+			
 			try {
-				console.log('isso é o formdata', formData);
-
 				const validationSchema = Yup.object().shape({
 					fullname: Yup.string().required('Informe seu nome'),
 					cpf: Yup.string().required('Informe seu SPF'),

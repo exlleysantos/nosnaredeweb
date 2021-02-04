@@ -8,19 +8,20 @@ import { MainInfos, MobileFooter, Name, Nickname, Tag, SchoolName } from './styl
 import { HiOutlineChatAlt, HiOutlineMail } from 'react-icons/hi';
 
 const UserProfile = ({ data }) => {
+	
 	return (
 		<Box>
 			<MainInfos>
-				<Avatar size={150} name={data.name} round='5px' maxInitials={2} />
+				<Avatar size={150} name = {data.fullname} round='5px' maxInitials={2} />
 
 				<div className='infos'>
 					<div className='row'>
-						<Name>{data.name}</Name>
+						<Name> Bem vind@, {data.fullname}</Name>
 						<Tag>Prof. 5° ano</Tag>
 					</div>
 
 					<div className='row'>
-						<Nickname>@juliahoward</Nickname>
+						<Nickname>{data.username}</Nickname>
 					</div>
 
 					<div className='row'>
@@ -31,7 +32,7 @@ const UserProfile = ({ data }) => {
 					</div>
 
 					<div className='row'>
-						<SchoolName>Colégio Menino Deus</SchoolName>
+						<SchoolName>{data.institution}</SchoolName>
 					</div>
 				</div>
 			</MainInfos>

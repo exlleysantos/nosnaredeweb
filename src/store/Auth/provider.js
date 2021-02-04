@@ -9,7 +9,6 @@ const AuthProvider = ({ children }) => {
 
 		if (storedUser) {
 			const storedToken = localStorage.getItem('@AUTH') || sessionStorage.getItem('@AUTH');
-
 			const user = JSON.parse(storedUser);
 
 			setAuth(storedToken);
@@ -23,11 +22,11 @@ const AuthProvider = ({ children }) => {
 	const signIn = (user, token, persistLogged) => {
 		const storage = persistLogged ? localStorage : sessionStorage;
 
-		storage.setItem('@AUTH', token);
+		storage.setItem('@token', token);
 		storage.setItem('@USER', JSON.stringify(user));
 
 		setUser(user);
-		window.location.href = '/home';
+		window.location.href = '/profile';
 	};
 
 	const signOut = () => {

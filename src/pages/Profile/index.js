@@ -37,7 +37,7 @@ const Profile = () => {
 					</div>
 					<div>
 						<header>
-							<h3>Lattes: {user.lattes} </h3>
+							<h3>Lattes: {(user.lattes)? user.lattes : "Não informado"} </h3>
 							<button>VER</button>
 						</header>
 					</div>

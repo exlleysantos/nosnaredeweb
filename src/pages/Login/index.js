@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, useRef } from 'react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom'
 
@@ -25,18 +25,19 @@ const Login = () => {
 
 		const isUserAuthenticated = async () => {
 			try {
-				const authToken = localStorage.getItem('@AUTH');
+				const authToken = localStorage.getItem('@token');
 
 				if (authToken) {
 					const headers = { authorization: `Bearer ${authToken}` };
 					const response = await api.get('/sessions', {
 						headers,
 					});
+					console.log(headers);
 
 					const isAuthenticated = response.status === 200 ? true : false;
 
 					if (isAuthenticated) {
-						return (window.location = '/profile');
+						return (window.location = '/profiles');
 					}
 				}
 			} catch (error) {
@@ -49,34 +50,36 @@ const Login = () => {
 
 	const handleLogin = async (e) => {
 		try {
-			e.preventDefault();
+			if (e && e.preventDefault) e.preventDefault()
+
+			console.log("Evento:", e);
 
 			const payload = { email, password };
-			const { data } = await api.post('/sessions', payload);
-			console.log("data aqui: ", data);
+			
 			const validationSchema = Yup.object().shape({
-				email: Yup.string().email().required(),
-				password: Yup.string().required(),
+				email: Yup.string().required('Informe um E-mail'),
+				password: Yup.string().required('Informe uma senha'),
 			});
-
+			
 			await validationSchema.validate(payload);
-
-			signIn(data.user, data.auth);
+			formRef.current.setErrors({});
+			
+			const { data } = await api.post('/sessions', payload);
+			signIn(data.user, data.token.token, true);
 
 		} catch (error) {
 			if (error instanceof Yup.ValidationError) {
 				return alert('Preencha todos os campos corretamente');
 			}
-			
-			switch (error) {
+			console.log(error.response.status);
+
+			switch (error.response.status) {
 				case 404:
 					return alert('Usuário nao encontrado');
 				case 401:
 					return alert('Senha incorreta');
-				case 503:
-					return alert('Serviço Indisponível')
 				default:
-					return alert(error);
+					return alert('Erro de servidor');
 			}
 		}
 	};
@@ -94,16 +97,14 @@ const Login = () => {
 					<span>ao #EntreNósnaRede</span>
 				</Welcome>
 
-				<Form ref={formRef} onSubmit={handleLogin}>
-					<Input name='email' placeholder='Email' size={4} value={email} onChange={(e) => setEmail(e.target.value)} />
+				<Form ref= {formRef} onSubmit={handleLogin}>
+					<Input name='email' placeholder='Email'type= 'email' size={4} value={email} onChange={(e) => setEmail(e.target.value)} />
 					<Input name='password' placeholder='Senha' type='password' size={4} value={password} onChange={(e) => setPassword(e.target.value)}/>
 
 					<Button size={4}>Entrar</Button>
-
-				</Form>
-					<Link to="/register" className="buttom">Cadastre-se</Link>
-
-				
+				</Form>	
+					<hr />
+					<Link to="/register">Cadastre-se</Link>
 			</FormContainer>
 		</Container>
 	);

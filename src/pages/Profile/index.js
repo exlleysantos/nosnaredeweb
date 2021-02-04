@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import UserProfile from '../../components/UserProfile';
 import Box from '../../components/Box';
 import { Container, BioInfos } from './styles';
 
-import api from '../../services/api';
 
-// import api from '../../services/api';
 
 const Profile = () => {
-	const [user] = useState({ name: 'Antonio Santos' });
 
+	const userData = localStorage.getItem('@USER');
+	const user = JSON.parse(userData);
+	console.log(user)
+	
 	return (
 		<Container>
 			<Box>
@@ -24,31 +25,28 @@ const Profile = () => {
 							<h3>Interesses</h3>
 						</header>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, in pellentesque
-							tempus felis, sociis elit, euismod enim, tincidunt duis.
+							Ainda não há interesses para exibir.
 						</p>
 					</div>
-
 					<div>
 						<header>
-							<h3>Disciplinas que ministra</h3>
+							<h3>ORCID: {user.orcid} </h3>
+							
+							<button>VER</button>
 						</header>
-						<p>Matemática e física.</p>
 					</div>
-
 					<div>
 						<header>
-							<h3>ORCID</h3>
-
+							<h3>Lattes: {user.lattes} </h3>
 							<button>VER</button>
 						</header>
 					</div>
 
+
 					<div>
 						<header>
 							<h3>Tradutor</h3>
-							<a></a>
-							<button href="https://google.com">VER</button>
+							<button>VER</button>
 						</header>
 					</div>
 

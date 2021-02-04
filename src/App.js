@@ -2,13 +2,13 @@ import React from 'react';
 
 import Routes from './routes';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { CombineProviders } from './store';
+import { AuthProvider } from './store/Auth/';
 
 const App = () => (
-	<CombineProviders>
+	<AuthProvider>
 		<Routes />
 		<GlobalStyles />
-	</CombineProviders>
+	</AuthProvider>
 );
 
 export default App;

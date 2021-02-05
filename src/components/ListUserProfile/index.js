@@ -7,14 +7,14 @@ import { MainInfos, MobileFooter, Name, Nickname, Tag, SchoolName } from './styl
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import { HiOutlineChatAlt, HiOutlineMail } from 'react-icons/hi';
+//import src from '*.bmp';
 
 const UserListProfile = ({ data }) => {
-	
+	const url = process.env.REACT_APP_API_URL;
 	return (
 		<Box>
 			<MainInfos>
-				<Avatar size={150} src= 'https://conteudo.imguol.com.br/c/entretenimento/80/2017/04/25/a-atriz-zoe-saldana-como-neytiri-em-avatar-1493136439818_v2_1920x1200.jpg' name = {data.username} round='5px' maxInitials={2} />
-				{console.log(data.profileImage.path)}
+				<Avatar size={160} src = {`${url}/images/${data.id}`} alt='' name = {data.username} round='5px' maxInitials={2} />
 				<div className='infos'>
 					<div className='row'>
 						<Name>{data.fullname}</Name>

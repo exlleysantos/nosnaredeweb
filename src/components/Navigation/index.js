@@ -23,6 +23,8 @@ import { FiShare2 } from 'react-icons/fi';
 import { BiChevronDown } from 'react-icons/bi';
 
 const Navigation = ({ showMenu, handleCloseMenu }) => {
+	const userData = localStorage.getItem('@USER');
+	const data = JSON.parse(userData);
 	const { pathname } = useLocation();
 
 	const [showOverlay, setShowOverlay] = useState(false);
@@ -51,10 +53,10 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				</ToggleMenu>
 
 				<PicContainer>
-					<Avatar round='5px' name='Jane Wilson' />
+					<Avatar round='5px' name = {data.fullname} />
 					<div>
-						<p>Jane Wilson</p>
-						<span>@janewilson</span>
+						<p>{data.fullname}</p>
+						<span>{data.username}</span>
 					</div>
 				</PicContainer>
 

@@ -32,13 +32,13 @@ const Profile = () => {
 						<header>
 							<h3>ORCID: {user.orcid} </h3>
 							
-							<button>VER</button>
+							<a href={user.orcid} target="blank"><button>VER</button></a>
 						</header>
 					</div>
 					<div>
 						<header>
 							<h3>Lattes: {(user.lattes)? user.lattes : "Não informado"} </h3>
-							<button>VER</button>
+							<a href={user.lattes} target="blank"><button>VER</button></a>
 						</header>
 					</div>
 
@@ -46,7 +46,7 @@ const Profile = () => {
 					<div>
 						<header>
 							<h3>Tradutor</h3>
-							<button>VER</button>
+							<a href="https://translate.google.com.br/" target="blank"><button>VER</button></a>
 						</header>
 					</div>
 
@@ -54,23 +54,14 @@ const Profile = () => {
 						<header>
 							<h3>Agenda</h3>
 
-							<button href="https://google.com">VER</button>
+							<a href="https://calendar.google.com/calendar/" target="blank"><button>VER</button></a>
 						</header>
 					</div>
-
-					<div>
-						<header>
-							<h3>Tradutor</h3>
-
-							<button href="https://google.com">VER</button>
-						</header>
-					</div>
-
 					<div>
 						<header>
 							<h3>Calculadora</h3>
 
-							<button href="https://google.com">VER</button>
+							<a href="https://www.google.com/search?q=calculadora" target="blank"><button>VER</button></a>
 						</header>
 					</div>
 				</BioInfos>

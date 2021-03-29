@@ -43,6 +43,23 @@ export const BioInfos = styled.div`
 					background: var(--purple-opacity);
 				}
 			}
+			& > a button {
+				font-size: 17px;
+				text-transform: uppercase;
+				color: var(--body-1);
+				border: none;
+				background: none;
+				padding: 8px 16px;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 300ms;
+				font-weight: 500;
+
+				&:hover {
+					color: var(--purple);
+					background: var(--purple-opacity);
+				}
+			}
 		}
 
 		& > p {

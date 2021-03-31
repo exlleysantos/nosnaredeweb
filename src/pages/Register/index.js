@@ -31,9 +31,11 @@ const Register = () => {
 			window.location.href = "https://nosnaredeweb.herokuapp.com/"
 		}
 	}
-	
+
 	const handleAddSubject = useCallback(() => {
 		console.log('FORMULÁRIO', formRef.current.getData());
+		
+
 		const subject = formRef.current.getFieldValue('subjectName');
 
 		if (!subject) {
@@ -47,6 +49,8 @@ const Register = () => {
 	const handleRemoveSubject = useCallback((removedIndex) => {
 		return setSubjects((subjects) => subjects.filter((_, index) => index !== removedIndex));
 	}, []);
+
+
 
 	const handleSubmit = useCallback(
 		async (formData) => {
@@ -79,16 +83,13 @@ const Register = () => {
 				}
 
 				payload.append('subjects', subjects);
+			
+				const  { data }  = await api.post('users', payload);
 
-				const { profileImage } = formRef.current.getData();
-				
-				const { data: {id} } = await api.post('users', payload);
-
-				const picture = new FormData();
-
-				picture.append('profileImage', profileImage);
-
-				console.log('IMAGEM DE PERFIL', profileImage);
+				const image = new FormData();
+				let imagem = formRef.current.getFieldValue('profileImage');
+				image.append('image', imagem);
+				console.log('image', image.get('image'));
 
 				const config = {
 					headers: {
@@ -96,7 +97,7 @@ const Register = () => {
 					}
 				  };
 
-				await api.post(`/users/${id}/picture`, picture, config);
+				await api.post(`users/${data.id}/picture`, image, config);
 
 
 				return redirecionar();

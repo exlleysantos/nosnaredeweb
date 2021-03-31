@@ -37,7 +37,7 @@ const UserListProfile = ({ data }) => {
 			<MainInfos>
 				<Avatar
 					size={160}
-					src={`${url}/images/${data.id}`}
+					src={`${url}/images/profilePic-${data.id}`}
 					alt=''
 					name={data.username}
 					round='5px'

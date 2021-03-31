@@ -8,11 +8,11 @@ import { MainInfos, MobileFooter, Name, Nickname, Tag, SchoolName } from './styl
 import { HiOutlineChatAlt, HiOutlineMail } from 'react-icons/hi';
 
 const UserProfile = ({ data }) => {
-	
+	const url = process.env.REACT_APP_API_URL;
 	return (
 		<Box>
 			<MainInfos>
-				<Avatar size={150} name = {data.fullname} round='5px' maxInitials={2} />
+				<Avatar size={150} name = {data.fullname} round='5px' maxInitials={2} src={`${url}/images/profilePic-${data.id}`} />
 
 				<div className='infos'>
 					<div className='row'>

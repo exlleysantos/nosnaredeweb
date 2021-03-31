@@ -22,6 +22,7 @@ const options = [
 const Register = () => {
 	const formRef = useRef(null);
 
+	
 	const [subjects, setSubjects] = useState([]);
 	const [level, setTeachingDegree] = useState(undefined);
 	
@@ -30,8 +31,9 @@ const Register = () => {
 			window.location.href = "https://nosnaredeweb.herokuapp.com/"
 		}
 	}
-
+	
 	const handleAddSubject = useCallback(() => {
+		console.log('FORMULÁRIO', formRef.current.getData());
 		const subject = formRef.current.getFieldValue('subjectName');
 
 		if (!subject) {
@@ -78,11 +80,29 @@ const Register = () => {
 
 				payload.append('subjects', subjects);
 
-				await api.post('users', payload);
+				const { profileImage } = formRef.current.getData();
+				
+				const { data: {id} } = await api.post('users', payload);
+
+				const picture = new FormData();
+
+				picture.append('profileImage', profileImage);
+
+				console.log('IMAGEM DE PERFIL', profileImage);
+
+				const config = {
+					headers: {
+					  "content-type": "multipart/form-data"
+					}
+				  };
+
+				await api.post(`/users/${id}/picture`, picture, config);
+
+
 				return redirecionar();
 			} catch (error) {
 
-				console.error("aqui o seu erro, ó:", error.message);
+				console.error("aqui o seu erro, ó:", error);
 
 				if (error instanceof Yup.ValidationError) {
 					console.log('entrou aqui')

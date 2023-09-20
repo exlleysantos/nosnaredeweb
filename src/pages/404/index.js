@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from './styles';
-
+// error page is loaded whan an error occured or the page do not exists
 const Error404 = () => {
 	return (
 		<Container>
